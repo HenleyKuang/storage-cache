@@ -27,6 +27,7 @@ setup(
 
     # Author details
     author='Henley Kuang',
+    author_email='hekuang@ucdavis.edu',
 
     # Choose your license
     license='GPL-3.0',
