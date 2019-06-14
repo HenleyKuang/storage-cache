@@ -32,7 +32,7 @@ clean-test:
 	rm -fr htmlcov/
 
 lint:
-	flake8 cloud_storage tests
+	flake8 storage_cache tests
 
 test:
 	py.test
@@ -41,15 +41,15 @@ test-all:
 	tox
 
 coverage:
-	coverage run --source cloud_storage setup.py test
+	coverage run --source storage_cache setup.py test
 	coverage report -m
 	coverage html
 	open htmlcov/index.html
 
 docs:
-	rm -f docs/cloud_storage.rst
+	rm -f docs/storage_cache.rst
 	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ cloud_storage
+	sphinx-apidoc -o docs/ storage_cache
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	open docs/_build/html/index.html
