@@ -6,7 +6,7 @@ import logging
 
 from retry_redis import Redis
 
-from cloud_storage_cache.util.config import (
+from storage_cache.util.config import (
     DEFAULT_LOG_FORMAT_STRING,
     DELIMITER,
 )
@@ -14,7 +14,7 @@ from cloud_storage_cache.util.config import (
 LOGGER = logging.getLogger(__name__)
 
 
-class CloudStorageRedisCache(object):
+class StorageRedisCache(object):
 
     redis_db = None
     key_format = None

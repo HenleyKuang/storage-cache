@@ -2,8 +2,8 @@ import argparse
 import logging
 import json
 
-from cloud_storage_cache import CloudStorageCacheFactory
-from cloud_storage_cache.util.config import DEFAULT_LOG_FORMAT_STRING
+from storage_cache import StorageCacheFactory
+from storage_cache.util.config import DEFAULT_LOG_FORMAT_STRING
 
 LOGGER = logging.getLogger(__name__)
 
@@ -53,9 +53,9 @@ def _main():
     key_format = options.key_format
     primary_keys = options.primary_keys
 
-    CloudStorageCache = CloudStorageCacheFactory.factory(cache_type)
+    StorageCache = StorageCacheFactory.factory(cache_type)
 
-    cloud_storage_cache = CloudStorageCache(
+    storage_cache = StorageCache(
         redis_host, redis_port, redis_password, redis_db, key_format)
 
     expiration_timeout = 3600 * 24 * 7 * 2  # 2 weeks
@@ -63,19 +63,19 @@ def _main():
     if options.sub_command == 'set-hash':
         secondary_keys = options.secondary_keys
         meta_data = json.dumps(options.meta_data)
-        result = cloud_storage_cache.set_cache_hash(
+        result = storage_cache.set_cache_hash(
             primary_keys, secondary_keys, meta_data, expiration_timeout)
     elif options.sub_command == 'get-hash':
         secondary_keys = options.secondary_keys
-        result_str = cloud_storage_cache.get_cache_hash(
+        result_str = storage_cache.get_cache_hash(
             primary_keys, secondary_keys)
         result = json.loads(result_str)
     elif options.sub_command == 'set-str':
         meta_data = json.dumps(options.meta_data)
-        result = cloud_storage_cache.set_cache_str(
+        result = storage_cache.set_cache_str(
             primary_keys, meta_data, expiration_timeout)
     elif options.sub_command == 'get-str':
-        result_str = cloud_storage_cache.get_cache_str(primary_keys)
+        result_str = storage_cache.get_cache_str(primary_keys)
         result = json.loads(result_str)
 
     LOGGER.info(result)

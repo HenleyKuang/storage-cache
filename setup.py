@@ -11,19 +11,19 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 
 setup(
-    name='cloud-storage-cache',
+    name='storage-cache',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
-    version='1.0.0',
+    version='1.1.0',
 
-    description='Cloud Storage Cache',
+    description='Storage Cache',
     long_description=long_description,
     long_description_content_type='text/x-rst',
 
     # The project's main homepage.
-    url='https://github.com/HenleyKuang/cloud-storage-cache',
+    url='https://github.com/HenleyKuang/storage-cache',
 
     # Author details
     author='Henley Kuang',
@@ -55,7 +55,7 @@ setup(
         'Topic :: Utilities',
     ],
     # What does your project relate to?
-    keywords='cloud storage cache redis',
+    keywords='storage cache redis',
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
