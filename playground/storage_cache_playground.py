@@ -79,6 +79,7 @@ def _main():
         result = json.loads(result_str)
 
     LOGGER.info(result)
+    LOGGER.info(type(result))
 
 
 if __name__ == '__main__':
