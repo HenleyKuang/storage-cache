@@ -1,4 +1,4 @@
-.PHONY: clean-pyc clean-build docs clean
+.PHONY: clean-build docs clean
 
 help:
 	@echo "clean - remove all build, test, coverage and Python artifacts"
@@ -13,7 +13,7 @@ help:
 	@echo "release - package and upload a release"
 	@echo "dist - package"
 
-clean: clean-build clean-pyc clean-test
+clean: clean-build clean-test
 
 clean-build:
 	rm -fr build/
